@@ -407,6 +407,7 @@
 				3DA3BC051A6AA58000E94594 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3DA3BC061A6AA58000E94594 /* Build configuration list for PBXNativeTarget "UIButtonTests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +416,7 @@
 				3DA3BC081A6AA58000E94594 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

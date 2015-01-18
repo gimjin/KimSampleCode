@@ -71,7 +71,7 @@ class ViewController: UIViewController {
         /*
         # 查看 NSAttributedString(NSStringDrawing)
         
-        let NSFontAttributeName: NSString!
+        let NSFontAttributeName: NSString! 设置字体
         let NSParagraphStyleAttributeName: NSString!
         let NSForegroundColorAttributeName: NSString!
         let NSBackgroundColorAttributeName: NSString!
@@ -99,7 +99,6 @@ class ViewController: UIViewController {
         //mNSMutableAttributedString.addAttribute(NSUnderlineStyleAttributeName, value: NSNumber(integer: 0x01), range: NSMakeRange(1, 3))
         mNSMutableAttributedString.addAttribute(NSStrikethroughStyleAttributeName, value: NSNumber(integer: 0x01), range: NSMakeRange(1, 3))
         mLabel.attributedText = mNSMutableAttributedString
-        NSTextEffectLetterpressStyle
         
         
     }
