@@ -50,9 +50,9 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="mButton" destination="ExS-2q-5TQ" id="kdp-kA-oTv"/>
-                        <outlet property="mButtonOne" destination="Jnz-Ec-DzF" id="ky5-Sh-EiZ"/>
-                        <outlet property="mButtonTwo" destination="3PV-FE-BlB" id="A6r-eZ-Otx"/>
+                        <outlet property="mButton" destination="ExS-2q-5TQ" id="j8h-Xd-9gQ"/>
+                        <outlet property="mButtonOne" destination="Jnz-Ec-DzF" id="pxA-xV-Lo3"/>
+                        <outlet property="mButtonTwo" destination="3PV-FE-BlB" id="g03-Q8-nUX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

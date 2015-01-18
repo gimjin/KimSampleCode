@@ -51,9 +51,9 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="mLabel" destination="AAl-SZ-N7F" id="ke1-iS-TJC"/>
-                        <outlet property="mLabelOne" destination="pz2-Xj-4f3" id="Job-rq-2aY"/>
-                        <outlet property="mLabelTwo" destination="aHm-6X-Ncr" id="wEZ-1c-Kzd"/>
+                        <outlet property="mLabel" destination="AAl-SZ-N7F" id="cR1-hL-Rgd"/>
+                        <outlet property="mLabelOne" destination="pz2-Xj-4f3" id="Zjg-tB-OXs"/>
+                        <outlet property="mLabelTwo" destination="aHm-6X-Ncr" id="Xjl-Mo-oBt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
