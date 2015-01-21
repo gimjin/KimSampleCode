@@ -40,9 +40,9 @@ class ViewController: UIViewController {
         [flexibleButton(>=70,<=100)] 宽度大于70小于100
         
         */
-        let mHConstraint = NSLayoutConstraint.constraintsWithVisualFormat("|-size-[mUISlider]-size-|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: ["size": 0], views: ["mUISlider": mUISlider])
+        let mHConstraint = NSLayoutConstraint.constraintsWithVisualFormat("|-size-[mUISlider]-size-|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: ["size": 20], views: ["mUISlider": mUISlider])
         //X轴上居中对齐，也可以直接喝self.view对齐
-        let mVConstraint = NSLayoutConstraint.constraintsWithVisualFormat("V:[mUISlider]-0-[mButton(100)]", options: NSLayoutFormatOptions.AlignAllCenterX, metrics: ["size": 0], views: ["mUISlider": mUISlider, "mButton": mButton])
+        let mVConstraint = NSLayoutConstraint.constraintsWithVisualFormat("V:|-100-[mUISlider]-0-[mButton(100)]", options: NSLayoutFormatOptions.AlignAllCenterX, metrics: ["size": 0], views: ["mUISlider": mUISlider, "mButton": mButton])
         
         self.view.addConstraints(mHConstraint)
         self.view.addConstraints(mVConstraint)
@@ -50,11 +50,11 @@ class ViewController: UIViewController {
         
         
         // 设置滑轨图片
-        mUISlider.setMaximumTrackImage(UIImage(named: "icon_download"), forState: UIControlState.Normal)
-        mUISlider.setMinimumTrackImage(UIImage(named: "icon_download"), forState: UIControlState.Normal)
+        mUISlider.setMaximumTrackImage(UIImage(named: "track_max"), forState: UIControlState.Normal)
+        mUISlider.setMinimumTrackImage(UIImage(named: "track_min"), forState: UIControlState.Normal)
         // 设置拖拽柄
-        mUISlider.setThumbImage(UIImage(named: "icon_download"), forState: UIControlState.Normal)
-        mUISlider.setThumbImage(UIImage(named: "icon_download"), forState: UIControlState.Highlighted)
+        mUISlider.setThumbImage(UIImage(named: "thumb_normal"), forState: UIControlState.Normal)
+        mUISlider.setThumbImage(UIImage(named: "thumb_highlighted"), forState: UIControlState.Highlighted)
         
     }
 
