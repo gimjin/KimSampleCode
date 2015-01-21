@@ -21,11 +21,11 @@ class ViewController: UIViewController {
         mLabel.text = "Hello World!"
         mLabel.font = UIFont(name: "HelveticaNeue", size: 10.0)
         mLabel.textColor = UIColor.greenColor()
-        mLabel.textAlignment = NSTextAlignment(rawValue: 2)!
+        mLabel.textAlignment = NSTextAlignment.Center
         mLabel.numberOfLines = 1;
         
         /*
-        设置高粱
+        设置高亮
         */
         mLabelTwo.highlighted = true
         mLabelTwo.highlightedTextColor = UIColor.redColor()

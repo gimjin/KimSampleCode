@@ -19,39 +19,52 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         /*
-        setTitle
+        设置文字
         */
         mButton.setTitle("Button Normal", forState: UIControlState.Normal)
         // 长按按钮后最后会进入Highlighted状态
         mButton.setTitle("Button Highlighted", forState: UIControlState.Highlighted)
-        // 已选择状态 Radiobutton会用上，在按钮上好像用不上
-//        mButton.selected = true
-//        mButton.setTitle("Button Selected", forState: UIControlState.Selected)
-//        mButton.enabled = false
-//        mButton.setTitle("Button disabled", forState: UIControlState.Disabled)
+        //        mButton.enabled = false
+        //        mButton.setTitle("Button disabled", forState: UIControlState.Disabled)
+        //设置属性文字，更多请看UILabelNSMutableAttributedString
+        var mNSMutableAttributedString = NSMutableAttributedString(string: "你好世界！")
+        mNSMutableAttributedString.addAttribute(NSFontAttributeName, value: UIFont(name: "HelveticaNeue-Bold", size: 60.0)!, range: NSMakeRange(0, 1))
+        mButtonOne.setAttributedTitle(mNSMutableAttributedString, forState: UIControlState.Normal)
         
+        
+        /*
+            设置边距 Margin
+        */
+        // 内容边距，不会把文字挤压掉而是会让按钮撑开
+        mButton.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        // 如果用titleEdgeInsets就会挤压文字
+//        mButton.titleEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        
+        /*
+        设置对齐 UIControl的子类都拥有此属性
+        */
+        mButton.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Right
+        
+
         /*
         setTitleColor 设置文字颜色
         */
-        //设置高亮时背景图不会变灰
-        mButton.adjustsImageWhenHighlighted = false
         mButton.setTitleColor(UIColor.orangeColor(), forState: UIControlState.Highlighted)
         mButton.setTitleShadowColor(UIColor.blackColor(), forState: UIControlState.Highlighted)
         
         /*
-        setBackgroundImage 设置背景图片
+        设置图片
         */
+        // setBackgroundImage 设置背景图片
         mButton.setBackgroundImage(UIImage(named: "icon@x2"), forState: nil)
         // 按钮中间会有白色光晕发光，之前在天气预报应用中体现过
         mButton.showsTouchWhenHighlighted = true
+        // 设置icon始终显示在文字左侧, 与showsTouchWhenHighlighted两者只能选择一个
+        mButton.setImage(UIImage(named: "icon_download"), forState: UIControlState.Normal)
+//        mButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: -100, bottom: 0, right: 0)
         
-        /*
-        setAttributedTitle
-        属性文字，更多请看UILabelNSMutableAttributedString
-        */
-        var mNSMutableAttributedString = NSMutableAttributedString(string: "你好世界！")
-        mNSMutableAttributedString.addAttribute(NSFontAttributeName, value: UIFont(name: "HelveticaNeue-Bold", size: 60.0)!, range: NSMakeRange(0, 1))
-        mButtonOne.setAttributedTitle(mNSMutableAttributedString, forState: UIControlState.Normal)
+        // button type system时才会生效：背景图片变亮
+        mButton.adjustsImageWhenHighlighted = true
         
         /*
         Tint Color 会把颜色向下传递

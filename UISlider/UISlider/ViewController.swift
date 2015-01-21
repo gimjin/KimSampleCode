@@ -19,10 +19,10 @@ class ViewController: UIViewController {
         mUISlider.maximumValue = 20
         mUISlider.setValue(10.0, animated: true)
         self.view.addSubview(mUISlider)
-        mUISlider.setTranslatesAutoresizingMaskIntoConstraints(false) //设置以Autolayout来布局
+        mUISlider.setTranslatesAutoresizingMaskIntoConstraints(false) //设置以Autolayout来布局, UIView.frame CGRectMake失效
         
         let mButton = UIButton.buttonWithType(UIButtonType.System) as UIButton
-        mButton.frame=CGRectMake(120,150,80,80) // UIView方法创建轮廓
+        mButton.frame = CGRectMake(120,150,80,80) // UIView方法创建轮廓
         mButton.setTitle("测试对齐", forState: UIControlState.Normal)
         self.view.addSubview(mButton)
         mButton.setTranslatesAutoresizingMaskIntoConstraints(false)
