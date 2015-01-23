@@ -43,7 +43,7 @@ class ViewController: UIViewController {
         let mHConstraint = NSLayoutConstraint.constraintsWithVisualFormat("|-size-[mUISlider]-size-|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: ["size": 20], views: ["mUISlider": mUISlider])
         //X轴上居中对齐，也可以直接喝self.view对齐
         let mVConstraint = NSLayoutConstraint.constraintsWithVisualFormat("V:|-100-[mUISlider]-0-[mButton(100)]", options: NSLayoutFormatOptions.AlignAllCenterX, metrics: ["size": 0], views: ["mUISlider": mUISlider, "mButton": mButton])
-        
+        let h = [mHConstraint, mVConstraint]
         self.view.addConstraints(mHConstraint)
         self.view.addConstraints(mVConstraint)
 //        self.view.removeConstraints(mVConstraint)
@@ -55,7 +55,8 @@ class ViewController: UIViewController {
         // 设置拖拽柄
         mUISlider.setThumbImage(UIImage(named: "thumb_normal"), forState: UIControlState.Normal)
         mUISlider.setThumbImage(UIImage(named: "thumb_highlighted"), forState: UIControlState.Highlighted)
-        
+        // 屏蔽用户Event，与enable的区别就是控件不会被制灰
+        mUISlider.userInteractionEnabled = false
     }
 
     override func didReceiveMemoryWarning() {

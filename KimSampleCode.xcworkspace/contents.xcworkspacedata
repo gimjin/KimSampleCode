@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:UIProgressView/UIProgressView.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:UIActivityIndicatorView/UIActivityIndicatorView.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:UISwitch/UISwitch.xcodeproj">
    </FileRef>
    <FileRef
