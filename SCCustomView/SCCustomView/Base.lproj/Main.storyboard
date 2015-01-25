@@ -23,6 +23,15 @@
                                     <constraint firstAttribute="height" constant="200" id="6ML-15-UJa"/>
                                     <constraint firstAttribute="width" constant="200" id="Qqc-Nl-0Sm"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="buttonTitle" value="Hello World!"/>
+                                    <userDefinedRuntimeAttribute type="rect" keyPath="buttonFrame">
+                                        <rect key="value" x="0.0" y="0.0" width="160" height="50"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="buttonTitleColor">
+                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

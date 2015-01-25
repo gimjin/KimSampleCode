@@ -30,8 +30,6 @@ class ViewController: UIViewController {
         mUIStepper.autorepeat = true
         
         mUIStepper.addTarget(self, action: "stepperValueIschanged", forControlEvents: UIControlEvents.ValueChanged)
-        var v = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-        self.view.addSubview(v)
         
     }
     

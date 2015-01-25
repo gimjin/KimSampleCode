@@ -65,11 +65,14 @@ class MyView: UIView {
     }
     
     func addCustomButton() {
+        
         // 初始化界面数据
-        myButton = UIButton(frame: buttonFrame)
+        myButton = UIButton.buttonWithType(UIButtonType.System) as UIButton
+        myButton.frame = buttonFrame
         myButton.setTitle(buttonTitle, forState: UIControlState.Normal)
         myButton.setTitleColor(buttonTitleColor, forState: UIControlState.Normal)
         addSubview(myButton)
+        
     }
     
     /*******************************
