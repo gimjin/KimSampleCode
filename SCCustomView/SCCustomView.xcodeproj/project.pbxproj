@@ -19,6 +19,8 @@
 		3D4EDA1A1A75093600D5006D /* CustomView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D4EDA031A75093600D5006D /* CustomView.framework */; };
 		3D4EDA1B1A75093600D5006D /* CustomView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3D4EDA031A75093600D5006D /* CustomView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3D4EDA241A75098400D5006D /* MyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4EDA231A75098400D5006D /* MyView.swift */; };
+		3DC566591A77BE5500384AAC /* MyXibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC566581A77BE5500384AAC /* MyXibView.swift */; };
+		3DF755C11A776E1900EC970C /* MyXibView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DF755C01A776E1900EC970C /* MyXibView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +86,8 @@
 		3D4EDA151A75093600D5006D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D4EDA161A75093600D5006D /* CustomViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewTests.swift; sourceTree = "<group>"; };
 		3D4EDA231A75098400D5006D /* MyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyView.swift; sourceTree = "<group>"; };
+		3DC566581A77BE5500384AAC /* MyXibView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyXibView.swift; sourceTree = "<group>"; };
+		3DF755C01A776E1900EC970C /* MyXibView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyXibView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +154,8 @@
 				3D4ED9E21A75092200D5006D /* Main.storyboard */,
 				3D4ED9E51A75092200D5006D /* Images.xcassets */,
 				3D4ED9E71A75092200D5006D /* LaunchScreen.xib */,
+				3DC566581A77BE5500384AAC /* MyXibView.swift */,
+				3DF755C01A776E1900EC970C /* MyXibView.xib */,
 				3D4ED9DC1A75092200D5006D /* Supporting Files */,
 			);
 			path = SCCustomView;
@@ -357,6 +363,7 @@
 				3D4ED9E41A75092200D5006D /* Main.storyboard in Resources */,
 				3D4ED9E91A75092200D5006D /* LaunchScreen.xib in Resources */,
 				3D4ED9E61A75092200D5006D /* Images.xcassets in Resources */,
+				3DF755C11A776E1900EC970C /* MyXibView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +395,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DC566591A77BE5500384AAC /* MyXibView.swift in Sources */,
 				3D4ED9E11A75092200D5006D /* ViewController.swift in Sources */,
 				3D4ED9DF1A75092200D5006D /* AppDelegate.swift in Sources */,
 			);
@@ -689,6 +697,7 @@
 				3D4ED9FA1A75092200D5006D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3D4ED9FB1A75092200D5006D /* Build configuration list for PBXNativeTarget "SCCustomViewTests" */ = {
 			isa = XCConfigurationList;
@@ -697,6 +706,7 @@
 				3D4ED9FD1A75092200D5006D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3D4EDA1C1A75093600D5006D /* Build configuration list for PBXNativeTarget "CustomView" */ = {
 			isa = XCConfigurationList;
@@ -705,6 +715,7 @@
 				3D4EDA1E1A75093600D5006D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3D4EDA201A75093600D5006D /* Build configuration list for PBXNativeTarget "CustomViewTests" */ = {
 			isa = XCConfigurationList;
@@ -713,6 +724,7 @@
 				3D4EDA221A75093600D5006D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

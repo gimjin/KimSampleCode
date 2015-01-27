@@ -85,9 +85,10 @@ class MyView: UIView {
         
         setCustomLayer()
         addCustomButton()
+        println("init")
         
     }
-    
+    // 为什么写 required 查看SCSwift 中为什么写 required init(coder aDecoder: NSCoder)
     required init(coder aDecoder: NSCoder) {
         
         // call super initializer
@@ -95,7 +96,18 @@ class MyView: UIView {
         
         setCustomLayer()
         addCustomButton()
+        println("Decoder")
         
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        println("layoutSubviews")
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        println("awakeFromNib")
     }
     
     

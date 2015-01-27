@@ -66,7 +66,7 @@ class ViewController: UIViewController {
         */
         mUITextField.setTranslatesAutoresizingMaskIntoConstraints(false) //设置以Autolayout来布局, UIView.frame CGRectMake失效
         let mHConstraint = NSLayoutConstraint.constraintsWithVisualFormat("|-size-[mUITextField]-size-|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: ["size": 50], views: ["mUITextField": mUITextField])
-        //X轴上居中对齐，也可以直接喝self.view对齐
+        //X轴上居中对齐，也可以直接喝self.view对齐 (AlignAllCenterX)
         let mVConstraint = NSLayoutConstraint.constraintsWithVisualFormat("V:|-30-[mUITextField]", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: ["size": 0], views: ["mUITextField": mUITextField])
         
         self.view.addConstraints(mHConstraint)

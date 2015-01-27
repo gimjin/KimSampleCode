@@ -99,13 +99,32 @@ kimSex = .Male //第二次赋值只用. 即可
 
 
 
+/***************************************
+每次都要写 required init(coder aDecoder: NSCoder) 的原因
+    查看Part I Welcome to Swift > Required Initializers，父类有必须要实现的init方法时用了required修饰符，子类也必须实现
+    http://www.devtalking.com/articles/swift-required/
+***************************************/
 
+class MyClass {
+    var str:String
+    init(str:String) {
+        self.str = str
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        self.str = ""
+    }
+}
 
+class MySubClass:MyClass {
+    override init(str:String) {
+        super.init(str:str)
+    }
 
-
-
-
-
+    required init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
 
 
 
