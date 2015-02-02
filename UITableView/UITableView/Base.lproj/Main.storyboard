@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="g81-Q5-mGf">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Item-->
+        <scene sceneID="xj6-et-Voi">
+            <objects>
+                <tableViewController id="yqt-cc-BPo" customClass="MyTableViewController" customModule="UITableView" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="23" sectionFooterHeight="22" id="d5g-vW-2eZ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="yqt-cc-BPo" id="Zp2-1i-TZe"/>
+                            <outlet property="delegate" destination="yqt-cc-BPo" id="j36-HB-RjD"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Item" id="k0X-hx-UqR"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qc1-z2-Jfx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1487" y="-1150.9999999999998"/>
+        </scene>
+        <!--Item 2-->
+        <scene sceneID="hhW-ek-zox">
+            <objects>
+                <viewController id="T2q-4r-9nv" customClass="MyUIViewController" customModule="UITableView" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Q4k-9z-oEl"/>
+                        <viewControllerLayoutGuide type="bottom" id="h48-4f-QUJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IZJ-p0-irL">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="XUd-w1-HPd" customClass="MyUITableView" customModule="UITableView" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="550"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XUd-w1-HPd" firstAttribute="bottom" secondItem="IZJ-p0-irL" secondAttribute="bottomMargin" constant="-50" id="6m1-OB-k61"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XUd-w1-HPd" secondAttribute="trailing" constant="-16" id="H20-Qm-hba"/>
+                            <constraint firstItem="XUd-w1-HPd" firstAttribute="leading" secondItem="IZJ-p0-irL" secondAttribute="leadingMargin" constant="-16" id="Wsn-8a-65B"/>
+                            <constraint firstItem="XUd-w1-HPd" firstAttribute="top" secondItem="IZJ-p0-irL" secondAttribute="topMargin" id="jvU-EU-bx7"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 2" id="yBH-Zc-tNp"/>
+                    <connections>
+                        <outlet property="mTableView" destination="XUd-w1-HPd" id="YMG-HE-xsj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X7S-E2-pdm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1487" y="-462"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="g1U-KB-ODS">
+            <objects>
+                <tabBarController id="g81-Q5-mGf" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="7n3-1B-dkV">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="T2q-4r-9nv" kind="relationship" relationship="viewControllers" id="cNA-lv-rbR"/>
+                        <segue destination="yqt-cc-BPo" kind="relationship" relationship="viewControllers" id="tUu-P8-fBn"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I6D-Is-9di" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="661" y="-786.99999999999989"/>
+        </scene>
+    </scenes>
+</document>
