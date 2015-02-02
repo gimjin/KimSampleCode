@@ -42,9 +42,9 @@ class MyUIViewController: UIViewController, UITableViewDelegate, UITableViewData
 //        return 100.0
 //    }
     // 缩进cell，但无效果
-    func tableView(tableView: UITableView, indentationLevelForRowAtIndexPath indexPath: NSIndexPath) -> Int {
-        return indexPath.row
-    }
+//    func tableView(tableView: UITableView, indentationLevelForRowAtIndexPath indexPath: NSIndexPath) -> Int {
+//        return indexPath.row
+//    }
     // 显示cell时
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         if(indexPath.row % 2 == 0) {
@@ -78,15 +78,15 @@ class MyUIViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         println("点击\(indexPath.row)行")
     }
-//    // 指定cell被取消选中（indexPath单选／nil多选）
-//    func tableView(tableView: UITableView, willDeselectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
-//        println("返回nil为多选，返回indexPath为单选")
-//        return indexPath
-//    }
-//    // 指定cell取消被选中时调用
-//    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-//        println("\(indexPath)行取消选中, 但好像有BUG启动willDeselect时此方法无效")
-//    }
+    // 指定cell被取消选中（indexPath单选／nil多选）
+    func tableView(tableView: UITableView, willDeselectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+        println("返回nil为多选，返回indexPath为单选")
+        return indexPath
+    }
+    // 指定cell取消被选中时调用
+    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        println("\(indexPath.row)行取消选中, 但好像有BUG启动willDeselect时此方法无效")
+    }
     // 自定义Header, 同理也可以自定义Footer(viewForFooterInSection)
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let v = UIView(frame: CGRectMake(0, 0, 100, 30))
@@ -105,8 +105,73 @@ class MyUIViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         println("马上要现实Header啦，赶紧对Header做一些操作吧")
     }
-    
-    
+    // 当触发编辑状态还没有结束时，调用该协议
+    func tableView(tableView: UITableView, willBeginEditingRowAtIndexPath indexPath: NSIndexPath) {
+        println("cell往左滑动，开始编辑")
+    }
+    // 当触发编辑状态结束后，调用该协议
+    func tableView(tableView: UITableView, didEndEditingRowAtIndexPath indexPath: NSIndexPath) {
+        println("cell往右滑动，编辑结束")
+    }
+    // 帮助文档搜索 “Characteristics of Cell Objects” Editing Control中设置显示图片
+    func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
+        // .Insert ＝ Editing Control的图片变成添加图标（此方法会影响cell往左滑动出现删除按钮）
+        return UITableViewCellEditingStyle.Delete
+    }
+    // 更改默认出现的Delete按钮字符
+    func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String! {
+        return "Custom DEL"
+    }
+    // （无效果）通知委托在编辑模式下是否需要对表视图指定行进行缩进，NO为关闭缩进，这个方法可以用来去掉move时row前面的空白。
+    func tableView(tableView: UITableView, shouldIndentWhileEditingRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    // 移动行的过程中会多次调用此方法，返回值代表进行移动操作后所到的行，如果设置为当前行，则不论怎么移动都会回到当前行。
+    func tableView(tableView: UITableView, targetIndexPathForMoveFromRowAtIndexPath sourceIndexPath: NSIndexPath, toProposedIndexPath proposedDestinationIndexPath: NSIndexPath) -> NSIndexPath {
+        return proposedDestinationIndexPath
+    }
+    // 每个Cell从屏幕中移动出屏幕外（原本显示拖拽出屏幕外）时被调用
+    func tableView(tableView: UITableView, didEndDisplayingCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        println("\(indexPath.row)行，从屏幕中消失")
+    }
+    func tableView(tableView: UITableView, didEndDisplayingFooterView view: UIView, forSection section: Int) {
+        println("section\(section)的Footer，从屏幕中消失")
+    }
+    func tableView(tableView: UITableView, didEndDisplayingHeaderView view: UIView, forSection section: Int) {
+        println("section\(section)的Header，从屏幕中消失")
+    }
+    // 下面三个Delegeate完成长按后出现复制、粘贴按钮
+    func tableView(tableView: UITableView, shouldShowMenuForRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    func tableView(tableView: UITableView, canPerformAction action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject) -> Bool {
+        if(action == "copy:") {
+            return true
+        } else if(action == "paste:") {
+            return false
+        } else {
+            return canPerformAction(action, withSender: sender)
+        }
+    }
+    func tableView(tableView: UITableView, performAction action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject!) {
+        if(action == "copy:") {
+            println("copy:")
+        } else if(action == "paste:") {
+            println("paste:")
+        } else {
+            println("Others")
+        }
+    }
+    // 通知委托是否开启点击高亮显示，false为显示。
+    func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    func tableView(tableView: UITableView, didHighlightRowAtIndexPath indexPath: NSIndexPath) {
+        println("点击Cell后需要高亮背景时，触发此方法")
+    }
+    func tableView(tableView: UITableView, didUnhighlightRowAtIndexPath indexPath: NSIndexPath) {
+        println("点击Cell后高亮背景消失时，触发此方法")
+    }
     
     /************************************
      UITableViewDelegate Delegate End
@@ -128,7 +193,6 @@ class MyUIViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     // 设置每一行显示的内容
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-        println("\(indexPath)")
         var mCell = MyTableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "\(indexPath)")
         return mCell
     }
@@ -155,8 +219,14 @@ class MyUIViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     // 往左滑动个cell出现删除按钮
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if(editingStyle == UITableViewCellEditingStyle.Insert) {
+            println("插入")
+        } else if(editingStyle == UITableViewCellEditingStyle.Delete) {
+            println("删除")
+        } else {
+            println("None")
+        }
         
-        println("删除")
     }
     // 与上面方法一起使用，true允许出现删除按钮
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
